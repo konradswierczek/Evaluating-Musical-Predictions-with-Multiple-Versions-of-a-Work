@@ -11,7 +11,7 @@ library(tidyr)
 # Read data from multiple files and consolidate into one long tibble.
 df_raw <- list.files(
   "data",
-  pattern = "_",
+  pattern = "^_.*\\.csv$",
   full.names = TRUE
 ) |>
   map_dfr(
