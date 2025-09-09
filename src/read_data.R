@@ -17,20 +17,6 @@ df_eme <- read_csv("data/eme_data.csv")
 
 # ============================================================================ #
 df_tidy <-  df_raw |>
-  filter(
-    extractor %in% c(
-      "essentia_tempo_percival", "mirtoolbox_tempo_metre", "librosa_tempo_org",
-      "essentia_onsets_rms", "mirtoolbox_onsets_org", "librosa_onsets_org",
-      "essentia_mode_cqtGomezMIRtoolbox", "mirtoolbox_mode_stftGomezMIRtoolbox", "librosa_mode_censGomezMIRtoolbox",
-      "essentia_centroid_org", "mirtoolbox_centroid_org", "librosa_centroid_org"
-    ),
-    !albumID %in% c(
-      "flatMIDI",
-      "bachAshkenazy2006Deadpan",
-      "bachDemaria2014Deadpan",
-      "bachNewman1973"
-    )
-  ) |>
   separate_wider_delim(
     extractor,
     delim = "_",

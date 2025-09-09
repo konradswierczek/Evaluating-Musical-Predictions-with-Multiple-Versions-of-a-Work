@@ -76,18 +76,14 @@
         "yhat"
       ],
       "RoxygenNote": "7.3.2",
+      "Author": "Michael Schutz [aut, cre] (ORCID: <https://orcid.org/0000-0002-6882-5928>), Cameron Anderson [aut] (ORCID: <https://orcid.org/0000-0002-8737-2055>), Konrad Swierczek [aut] (ORCID: <https://orcid.org/0009-0003-9862-3440>), Jackie Zhou [aut] (ORCID: <https://orcid.org/0009-0008-2628-4036>), Aditi Shukla [aut] (ORCID: <https://orcid.org/0009-0000-7298-9055>)",
+      "Maintainer": "Michael Schutz <schutz@mcmaster.ca>",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "MAPLEemo",
       "RemoteUsername": "MAPLE-Lab",
       "RemoteRef": "HEAD",
-      "RemoteSha": "015e0383b20e7835e7e32ce0cc9b33fdc3558fd7",
-      "NeedsCompilation": "no",
-      "Author": "Michael Schutz [aut, cre] (ORCID: <https://orcid.org/0000-0002-6882-5928>), Cameron Anderson [aut] (ORCID: <https://orcid.org/0000-0002-8737-2055>), Konrad Swierczek [aut] (ORCID: <https://orcid.org/0009-0003-9862-3440>), Jackie Zhou [aut] (ORCID: <https://orcid.org/0009-0008-2628-4036>), Aditi Shukla [aut] (ORCID: <https://orcid.org/0009-0000-7298-9055>)",
-      "Maintainer": "Michael Schutz <schutz@mcmaster.ca>",
-      "Depends": [
-        "R (>= 4.1.0)"
-      ]
+      "RemoteSha": "015e0383b20e7835e7e32ce0cc9b33fdc3558fd7"
     },
     "MASS": {
       "Package": "MASS",
@@ -123,8 +119,7 @@
       "NeedsCompilation": "yes",
       "Author": "Brian Ripley [aut, cre, cph], Bill Venables [aut, cph], Douglas M. Bates [ctb], Kurt Hornik [trl] (partial port ca 1998), Albrecht Gebhardt [trl] (partial port ca 1998), David Firth [ctb] (support functions for polr)",
       "Maintainer": "Brian Ripley <Brian.Ripley@R-project.org>",
-      "Repository": "RSPM",
-      "Encoding": "UTF-8"
+      "Repository": "CRAN"
     },
     "Matrix": {
       "Package": "Matrix",
@@ -550,8 +545,7 @@
       "License": "Unlimited",
       "NeedsCompilation": "no",
       "Author": "Angelo Canty [aut] (author of original code for S), Brian Ripley [aut, trl] (conversion to R, maintainer 1999--2022, author of parallel support), Alessandra R. Brazzale [ctb, cre] (minor bug fixes)",
-      "Repository": "RSPM",
-      "Encoding": "UTF-8"
+      "Repository": "CRAN"
     },
     "bslib": {
       "Package": "bslib",
@@ -1718,8 +1712,7 @@
       "NeedsCompilation": "yes",
       "Author": "Deepayan Sarkar [aut, cre] (<https://orcid.org/0000-0003-4107-1553>), Felix Andrews [ctb], Kevin Wright [ctb] (documentation), Neil Klepeis [ctb], Johan Larsson [ctb] (miscellaneous improvements), Zhijian (Jason) Wen [cph] (filled contour code), Paul Murrell [ctb], Stefan Eng [ctb] (violin plot improvements), Achim Zeileis [ctb] (modern colors), Alexandre Courtiol [ctb] (generics for larrows, lpolygon, lrect and lsegments)",
       "Maintainer": "Deepayan Sarkar <deepayan.sarkar@r-project.org>",
-      "Repository": "RSPM",
-      "Encoding": "UTF-8"
+      "Repository": "CRAN"
     },
     "lifecycle": {
       "Package": "lifecycle",
@@ -1899,8 +1892,7 @@
       "ByteCompile": "yes",
       "License": "GPL (>= 2)",
       "NeedsCompilation": "yes",
-      "Repository": "RSPM",
-      "Encoding": "UTF-8"
+      "Repository": "CRAN"
     },
     "mime": {
       "Package": "mime",
