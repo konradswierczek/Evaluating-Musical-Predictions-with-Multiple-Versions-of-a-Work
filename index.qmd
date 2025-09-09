@@ -1,5 +1,6 @@
 ---
-title: "Musical Feature Evaluation with Versions"
 ---
 
 # Coming Soon!
+
+![](img/figure_4.png)
