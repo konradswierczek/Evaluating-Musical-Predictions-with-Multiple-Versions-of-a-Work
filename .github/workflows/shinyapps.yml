@@ -26,7 +26,7 @@ jobs:
                         name = Sys.getenv('SHINYAPPS_NAME'),
                         token = Sys.getenv('SHINYAPPS_TOKEN'),
                         secret = Sys.getenv('SHINYAPPS_SECRET'))"
-          Rscript -e "rsconnect::deployApp(appName = 'variation-between-versions')"
+          Rscript -e "rsconnect::deployApp(appName = 'variation-between-versions', forceUpdate = TRUE)"
         env:
           SHINYAPPS_NAME: ${{ secrets.SHINYAPPS_USER }}
           SHINYAPPS_TOKEN: ${{ secrets.SHINYAPPS_TOKEN }}
