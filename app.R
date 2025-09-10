@@ -11,90 +11,159 @@ options(shiny.port = 3838)
 source("src/read_data.R")
 
 text_size <- 20
-title <- "Interactive Visualizer: Musical Feature Evaluation with Versions"
+title <- "Musical Feature Evaluation with Versions"
 
 # ============================================================================ #
-ui <- fluidPage(
-  title = title,
+ui <- tagList(
+  tags$head(
+    tags$style(HTML("
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      }
+      .full-width-header {
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        background-color: #70747c;
+        color: white;
+        padding: 0 24px;
+        display: flex;
+        justify-content: flex-start;  /* <-- change here */
+        align-items: center;
+        box-sizing: border-box;
+        gap: 16px; /* spacing between items */
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+      .full-width-header h2 {
+        margin: 0;
+        font-family: inherit;
+        font-weight: inherit;
+      }
+    ")),
+    tags$title(title)
+  ),
+  div(
+    class = "full-width-header",
+    style = "gap: 16px;",  # spacing between items
 
-  titlePanel(
-    title = div(
-      style = "display: flex; justify-content: space-between; align-items: center;",
-      h2(
-        title,
-        style = "margin: 0;"
-      ),
-      a(
-        href = "https://maplelab.net",
-        target = "_blank",
-        img(
-          src = "https://maplelab.net/wp-content/uploads/2016/08/cropped-maple-logo.png",
-          height = "60px"
-        )
+    # Maple Lab logo
+    a(
+      href = "https://maplelab.net",
+      target = "_blank",
+      img(
+        src = "https://maplelabs.info/wp-content/uploads/2018/05/final_head-darker-leaf-png-300x300.png",
+        height = "50px",
+        style = "display:block;"
+      )
+    ),
+
+    h2(title, style = "margin: 0; font-size: 2.25rem; line-height: 60px; font-weight: 500;"),
+
+    # GitHub icon
+    a(
+      href = "https://github.com/konradswierczek/variation-between-versions",
+      target = "_blank",
+      img(
+        src = "https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png",
+        height = "30px",
+        style = "display:block;"
+      )
+    ),
+
+    # Book icon (Bootstrap SVG)
+    a(
+      href = "https://journals.sagepub.com/home/mns",
+      target = "_blank",
+      img(
+        src = "https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/book.svg",
+        height = "30px",
+        style = "display:block;"
+      )
+    ),
+
+    # Website icon (globe)
+    a(
+      href = "https://konradswierczek.ca",
+      target = "_blank",
+      img(
+        src = "https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/globe.svg",
+        height = "30px",
+        style = "display:block;"
       )
     )
   ),
 
-  sidebarLayout(
-    sidebarPanel(
-      width = 2,
-      selectInput(
-        "feature", # URL to open on click
-        "Select a Musical Property",
-        choices = NULL
-      ),
-      selectInput(
-        "tool",
-        "Select an Analysis Tool",
-        choices = NULL
-      ),
-      selectInput(
-        "method",
-        "Select an Extraction Method",
-        choices = NULL
-      ),
-      wellPanel(
-        h4("Information"),
-        p(
-          "Data from 'Musical Feature Evaluation with Versions', a manuscript accepted in Music & Science. ",
-          "Visit ",
-          a(
-            href = "https://github.com/konradswierczek/variation-between-versions",
-            "github.com/konradswierczek/variation-between-versions",
-            target = "_blank"
-          ),
-          " for more information.",
-          "Select one of the three music content analysis tools and four features we analyzed. Select an algorithm method. The first plot shows the Variation Between Versions for each of the 24 preludes from Bach's Well Tempered Clavier Book 1 across 17 notable performances. Click on any of the preludes to see the predicted values for each album."
+  # Small spacer so content doesn't touch header
+  tags$div(style = "height: 20px;"),
+
+  # Main page content with normal Shiny layout
+  fluidPage(
+    sidebarLayout(
+      sidebarPanel(
+        width = 2,
+        selectInput(
+          "feature",
+          "Select a Musical Property",
+          choices = NULL
+        ),
+        selectInput(
+          "tool",
+          "Select an Analysis Tool",
+          choices = NULL
+        ),
+        selectInput(
+          "method",
+          "Select an Extraction Method",
+          choices = NULL
+        ),
+        wellPanel(
+          h4("Information"),
+          p(
+            "Data from 'Musical Feature Evaluation with Versions', a manuscript accepted in Music & Science. ",
+            "Visit ",
+            a(
+              href = "https://github.com/konradswierczek/variation-between-versions",
+              "github.com/konradswierczek/variation-between-versions",
+              target = "_blank"
+            ),
+            " for more information.",
+            "Select one of the three music content analysis tools and four features we analyzed. Select an algorithm method. The first plot shows the Variation Between Versions for each of the 24 preludes from Bach's Well Tempered Clavier Book 1 across 17 notable performances. Click on any of the preludes to see the predicted values for each album."
+          )
         )
-      )
-    ),
-    mainPanel(
-      width = 10,
-      fluidRow(
-        column(
-          width = 6,
-          div(
-            style = "aspect-ratio: 1 / 1; width: 100%;",
-            plotOutput(
-              "dotplot",
-              width = "100%",
-              height = "100%",
-              click = clickOpts(id = "plot_click")
+      ),
+      mainPanel(
+        width = 10,
+        fluidRow(
+          column(
+            width = 6,
+            div(
+              style = "aspect-ratio: 1 / 1; width: 100%;",
+              plotOutput(
+                "dotplot",
+                width = "100%",
+                height = "100%",
+                click = clickOpts(id = "plot_click")
+              )
+            )
+          ),
+          column(
+            width = 6,
+            div(
+              style = "aspect-ratio: 1 / 1; width: 100%;",
+              plotOutput(
+                "albums",
+                width = "100%",
+                height = "100%",
+                click = clickOpts(id = "album_click")
+              )
             )
           )
         ),
-        column(
-          width = 6,
-          div(
-            style = "aspect-ratio: 1 / 1; width: 100%;",
-            plotOutput(
-              "albums",
-              width = "100%",
-              height = "100%",
-              click = clickOpts(id = "album_click")
-            )
-          )
-        )
+        uiOutput("score")
       )
     )
   )
@@ -258,7 +327,13 @@ server <- function(input, output, session) {
         x = paste0("Predicted Value: ", input$feature),
         y = "Number of Albums",
         fill = "Nominal Mode",
-        title = paste0("Prelude in ", pieceID())
+        title = paste0(
+          "Prelude in ",
+          df_metadata_pieces |>
+            filter(pieceID == pieceID()) |>
+            mutate(key = paste(key, mode)) |>
+            pull(key)
+        )
       ) +
       theme_maple() +
       theme(
@@ -269,6 +344,10 @@ server <- function(input, output, session) {
         axis.text = element_text(size = text_size * 0.8),
         plot.title = element_text(size = text_size)
       )
+  })
+
+  output$score <- renderUI({
+    img(src = paste0("bach-1_", pieceID(), "_snippet.png"), width = "100%")
   })
 }
 
