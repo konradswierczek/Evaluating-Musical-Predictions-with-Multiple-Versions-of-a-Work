@@ -33,7 +33,7 @@ df_mse <- left_join(
   ungroup()
 
 # ============================================================================ #
-df_subset <- df_tidy |> 
+df_subset <- df_tidy |>
   semi_join(
     df_mse |>
       group_by(tool, feature) |>

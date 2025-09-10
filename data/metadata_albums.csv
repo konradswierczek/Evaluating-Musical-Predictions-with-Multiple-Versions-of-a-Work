@@ -1,22 +1,26 @@
 albumID,setCode,yearRecorded,yearReleased,instrument,recordLabel,fullName
-flatMIDI,bach-1,NA,NA,NA,NA,NA
-bachAshk2006,bach-1,NA,NA,NA,NA,NA
-bachAshk2006Deadpan,bach-1,NA,NA,NA,NA,NA
-bachBarenboim2006,bach-1,NA,NA,NA,NA,NA
-bachDemaria2015,bach-1,NA,NA,NA,NA,NA
-bachDemaria2015Deadpan,bach-1,NA,NA,NA,NA,NA
-bachDemus1970,bach-1,NA,NA,NA,NA,NA
-bachFischer1934,bach-1,1934,2007,piano,NA,Edwin Fischer
-bachGalling1964,bach-1,1964,2006,harpsichord,NA,Martin Galling
-bachGould1971,bach-1,1962-1963 (CD 1) 1963-1965 (CD 2),NA,piano,NA,Glenn Gould
-bachGulda,bach-1,NA,NA,NA,NA,NA
-bachHamilton1964,bach-1,NA,NA,harpsichord,NA,Malcom Hamilton
-bachKirkpatrick1963,bach-1,NA,NA,NA,NA,NA
-bachLandowska1951,bach-1,1951,1987,harpsichord,NA,Wanda Landowska
-bachLeonhardt1973,bach-1,1973,1989,piano,NA,Gustav Leonhardt
-bachMartins1964,bach-1,NA,NA,NA,NA,NA
-bachNewman1973,bach-1,NA,1973,piano,NA,Anthony Newman
-bachNewman2001harpsichord,bach-1,NA,NA,NA,NA,NA
-bachNewman2001piano,bach-1,2001,2001,piano,NA,Anthony Newman
-bachRichter1970,bach-1,NA,NA,NA,NA,NA
-bachTureck1953,bach-1,1953,1999,harpsichord,NA,Rosalyn Tureck
+bachWalcha1961,bach-1,NA,2015,harpsichord,Celestial Harmonies,Helmut Walcha
+bachDemus1956,bach-1,NA,1992,piano,MCA Records,Jörg Demus
+bachLandowska1951,bach-1,NA,1987,harpsichord,RCA Victor Red Seal,Wanda Landowska
+bachLeonhardt1973,bach-1,NA,1989,piano,BMG Classics,Gustav Leonhardt
+bachFeltsman1993,bach-1,NA,1993,piano,Music Masters,Vladimir Feltsman
+bachFischer1934,bach-1,NA,2007,piano,EMI Records,Edwin Fischer
+bachAshkenazy2006Deadpan,bach-1,NA,NA,NA,NA,NA
+bachGould1971,bach-1,NA,1993,piano,Sony Classical,Glenn Gould
+bachHewitt1998,bach-1,NA,2007,piano,Hyperion Records,Angela Hewitt
+bachSchiff2011,bach-1,NA,2012,piano,ECM Records,Andràs Schiff
+bachNewman1973,bach-1,NA,1973,piano,Columbia Masterworks,Anthony Newman
+bachMartins1981,bach-1,NA,1994,piano,Labour Records,João Carlos Martins
+bachBarenboim2003,bach-1,NA,2006,piano,Warner Classics,Daniel Barenboim
+bachNewman2000harpsichord,bach-1,NA,2001,harpsichord,Vox Cum Laude,Anthony Newman
+bachAshkenazy2006,bach-1,NA,2006,piano,Decca,Vladimir Ashkenazy
+bachGulda1973,bach-1,NA,1995,piano,Decca,Friedrich Gulda
+bachRichter1973,bach-1,NA,1992,piano,BMG Classics,Sviatoslav Richter
+bachDemaria2014,bach-1,NA,2015,piano,Decca,Pietro De Maria
+bachDemaria2014Deadpan,bach-1,NA,NA,NA,NA,NA
+bachTureck1953,bach-1,NA,1999,harpsichord,Deutsche Grammophon,Rosalyn Tureck
+bachGalling1964,bach-1,NA,2006,harpsichord,Vox Records,Martin Galling
+bachKirkpatrick1959,bach-1,NA,1963,piano,Deutsche Grammophon,Ralph Kirkpatrick
+bachSchiff1986,bach-1,NA,1986,piano,Decca,Andràs Schiff
+bachHamilton1964,bach-1,NA,1964,harpsichord,Everest,Malcom Hamilton
+bachNewman2001piano,bach-1,NA,2001,piano,KHAEON World Music,Anthony Newman

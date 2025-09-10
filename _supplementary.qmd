@@ -1,0 +1,134 @@
+# Supplementary Materials
+## Album Selection
+12 of the 17 albums we use here appear in an analysis of tempi (Palmer/Bach, 2004). We excluded the 13th album available in Palmer’s analysis as only a vinyl edition is available, where the others are available on CD. Four of the albums we use here appear in an analysis of cues (Anderson & Schutz, 2023). Gulda’s recording appears in both Palmer’s analysis and Anderson & Schutz (2023). An additional two recordings by Newman were available from a currently unpublished project, but met our criteria as a prominent performance of the WTC available commercially on CD.
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-albums
+#| tbl-cap: "Performances of the Well Tempered Clavier used, with details."
+library(knitr)
+library(dplyr)
+library(stringr)
+source("src/read_data.R")
+df_metadata_albums |>
+  filter(
+    !albumID %in% c(
+      "bachAshkenazy2006Deadpan",
+      "bachDemaria2014Deadpan",
+      "bachNewman1973"
+    )
+  ) |>
+  select(fullName, yearRecorded, instrument, recordLabel) |>
+  mutate(instrument = str_to_title(instrument)) |>
+  rename(
+    Performer = fullName,
+    `Year Recorded` = yearRecorded,
+    Instrument = instrument,
+    Label = recordLabel
+  ) |>
+  arrange(`Year Recorded`) |>
+  kable()
+
+```
+
+## Algorithm Selection
+With the exception of Spectral Centroid there are multiple methods for extraction, as described above. Here we select one method for each extracted feature/tool combination using a two step process. First, we began with a MIDI representations of the first eight measures of the 24 preludes from Bach’s Well Tempered Clavier, extracting the tempo encoded in the MIDI file, number of onsets, and mode (using the pitch class distribution based mode extraction algorithm described previously). We repeated this process on audio synthesized from the MIDI with a generic piano sound font, calculated the mean squared error of the difference for each piece (Table 2), and selected the lowest MSE within an extracted feature/tool for subsequent version analysis.
+MIRtoolbox by default uses a Short-time Fourier Transform with the mirmode algorithm. MIRtoolbox also implements a Constant-Q Transform that could be applied to the mode algorithm, not considered here. Essentia implements both a Constant-Q Transform and a Short-time Fourier Transform, and Librosa implements a Short-time Fourier Transform, Constant-Q Transform, Constant-Q Transform with CENS, and Variable-Q Transform. Details on these extractors can be found in each of the toolbox’s extensive documentations. Although Librosa implements only one algorithm for onset extraction, Essentia has six. MIRtoolbox also has a number of additional parameters for the mirevents algorithm, including variants for the envelope used and filtering options. However, we only consider the default options of mirevents here. MIRtoolbox and Librosa each have two methods for extracting tempo whereas we implement three methods from Essentia here.
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-selection
+#| tbl-cap: "Mean Squared Error of synthesized audio compared to MIDI for each feature and algorithm. The algorithm 'org' refers to the regular algorithm in the case of tools without multiple algorithms for the same feature."
+#| tbl-subcap:
+#|   - "Relative Mode"
+#|   - "Onsets (#)"
+#|   - "Tempo (BPM)"
+#| layout-ncol: 2
+source("src/read_data.R")
+source("src/select_algos.R")
+library(knitr)
+library(dplyr)
+library(stringr)
+df_mse_tbl <- df_mse |>
+  rename(
+    Feature = feature,
+    Tool = tool,
+    Algorithm = method,
+    MSE = mse
+  )
+df_mse_tbl |>
+  filter(Feature == "Relative Mode") |>
+  mutate(
+    MSE = round(MSE, 4),
+    Algorithm = str_replace(Algorithm, "GomezMIRtoolbox", "")
+  ) |>
+  kable()
+df_mse_tbl |>
+  filter(Feature == "Onsets (#)") |>
+  mutate(
+    MSE = round(MSE, 0)
+  ) |>
+  kable()
+df_mse_tbl |>
+  filter(Feature == "Tempo (BPM)") |>
+  mutate(
+    MSE = round(MSE, 0)
+  ) |>
+  kable()
+```
+
+## Mode Algorithm Implementation
+![mirmode values for all 408 audio files in our corpus. The x axis shows values from the MIRtoolbox mirmode algorithm, while the y axis shows values from MIRtoolbox mirchromagram values inputted into our python reproduction of the mirmode algorithm. The values are identical, indicating our reproduction was successful.](img/figure_8.png)
+
+## Pairwise Permutation Test Results
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-stats
+#| tbl-cap: "Results of pairwise permutation tests. All tests were performed with difference of means as test statistics and 10000 permutations."
+#| tbl-subcap:
+#|   - "Q1: How do tools compare when extracting the same feature?"
+#|   - "Q2: Which features are extracted most consistently?"
+load("data/inference.RData")
+
+df_res_tool |>
+mutate(
+  "Confidence Interval" = paste(
+    round(ci_low, 3),
+    round(ci_high, 3),
+    sep = " - "
+  ),
+  p_value = round(p_value, 3),
+  observed_statistic = round(observed_statistic, 3)
+) |>
+rename(
+  "P Value" = p_value,
+  "Group 1" = group1,
+  "Group 2" = group2,
+  "Test Statistic" = observed_statistic,
+  "Feature" = feature
+) |>
+select("Group 1", "Group 2", "Feature", "P Value", "Test Statistic", "Confidence Interval") |>
+kable()
+
+df_res_feature |>
+mutate(
+  "Confidence Interval" = paste(
+    round(ci_low, 3),
+    round(ci_high, 3),
+    sep = " - "
+  ),
+  p_value = round(p_value, 3),
+  observed_statistic = round(observed_statistic, 3)
+) |>
+rename(
+  "P Value" = p_value,
+  "Group 1" = group1,
+  "Group 2" = group2,
+  "Test Statistic" = observed_statistic,
+  "Tool" = tool
+) |>
+select("Group 1", "Group 2", "Tool", "P Value", "Test Statistic", "Confidence Interval") |>
+kable()
+
+```

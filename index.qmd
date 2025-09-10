@@ -4,3 +4,5 @@
 # Coming Soon!
 
 ![](img/figure_4.png)
+
+{{< include _supplementary.qmd >}}
