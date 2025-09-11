@@ -6,6 +6,8 @@ library(gridExtra)
 library(boot)
 library(ggpubr)
 
+load("data/inference.RData")
+
 mean_func <- function(x, indices) {
   mean(x[indices])
 }

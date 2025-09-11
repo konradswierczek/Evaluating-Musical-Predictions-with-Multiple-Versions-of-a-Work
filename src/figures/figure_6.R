@@ -5,6 +5,8 @@ library(ggplot2)
 library(gridExtra)
 library(boot)
 
+load("data/inference.RData")
+
 mean_func <- function(x, indices) {
   mean(x[indices])
 }

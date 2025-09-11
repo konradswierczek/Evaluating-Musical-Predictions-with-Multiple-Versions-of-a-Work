@@ -195,7 +195,10 @@ df_res_mode_significant <- df_res_mode |>
 
 # ============================================================================ #
 save(
-  df_main_effects, df_res_tool, df_res_feature, df_res_ins, df_res_mode,
+  df_main_effects, df_res_tool, df_res_feature,
+  df_res_ins, df_main_effects_ins,
+  df_main_effects_mode, df_res_mode,
+  df_res_tool_significant, df_res_feature_significant,
   file = "data/inference.RData"
 )
 

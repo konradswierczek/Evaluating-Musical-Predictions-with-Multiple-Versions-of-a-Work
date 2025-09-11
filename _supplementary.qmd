@@ -5,7 +5,7 @@
 #| echo: false
 #| warning: false
 #| label: tbl-albums
-#| tbl-cap: "Performances of the Well Tempered Clavier used, with details."
+#| tbl-cap: "Performances of the Well Tempered Clavier used, with details. Year Recorded corresponds to the latest year listed if recorded across multiple years."
 library(knitr)
 library(dplyr)
 library(stringr)

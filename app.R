@@ -288,6 +288,11 @@ server <- function(input, output, session) {
   output$albums <- renderPlot({
     df_tidy |>
       filter(
+        !albumID %in% c(
+          "bachAshkenazy2006Deadpan",
+          "bachDemaria2014Deadpan",
+          "bachNewman1973"
+        ),
         feature == input$feature,
         tool == input$tool,
         method == input$method,
