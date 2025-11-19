@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>license – Musical Feature Evaluation with Versions</title>
+<title>license – Evaluating Musical Predictions with Multiple Versions of a Work</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8ada040feef1f136d821616479eeba7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-237bb6ab85e8ac4a36ffb1d1877e2464.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,10 +80,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="https://maplelab.net" class="navbar-brand navbar-brand-logo">
-    <img src="https://maplelabs.info/wp-content/uploads/2018/05/final_head-darker-leaf-png-300x300.png" alt="" class="navbar-logo">
+    <img src="https://maplelabs.info/wp-content/uploads/2018/05/final_head-darker-leaf-png-300x300.png" alt="" class="navbar-logo light-content">
+    <img src="https://maplelabs.info/wp-content/uploads/2018/05/final_head-darker-leaf-png-300x300.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="https://maplelab.net">
-    <span class="navbar-title">Musical Feature Evaluation with Versions</span>
+    <span class="navbar-title">Evaluating Musical Predictions with Multiple Versions of a Work</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -96,16 +98,16 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://swierckj.shinyapps.io/variation-between-versions/"> 
+    <a class="nav-link" href="https://konradswierczek.github.io/Evaluating-Musical-Predictions-with-Multiple-Versions-of-a-Work/"> 
 <span class="menu-text">Interactive Data</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/konradswierczek/variation-between-versions"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/konradswierczek/Evaluating-Musical-Predictions-with-Multiple-Versions-of-a-Work"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://journals.sagepub.com/home/mns"> <i class="bi bi-book" role="img">
+    <a class="nav-link" href="https://journals.sagepub.com/doi/10.1177/20592043251384138"> <i class="bi bi-book" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -423,13 +425,14 @@ under certain conditions; type `show c' for details.</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -444,7 +447,7 @@ under certain conditions; type `show c' for details.</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/konradswierczek\.github\.io\/variation-between-versions\/");
+        var filterRegex = new RegExp("https:\/\/konradswierczek\.github\.io\/Evaluating-Musical-Predictions-with-Multiple-Versions-of-a-Work\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -795,13 +798,13 @@ under certain conditions; type `show c' for details.</code></pre>
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/konradswierczek/variation-between-versions">
+    <a class="nav-link" href="https://github.com/konradswierczek/Evaluating-Musical-Predictions-with-Multiple-Versions-of-a-Work">
       <i class="bi bi-github" role="img">
 </i> 
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://journals.sagepub.com/home/mns">
+    <a class="nav-link" href="https://journals.sagepub.com/doi/10.1177/20592043251384138">
       <i class="bi bi-book" role="img">
 </i> 
     </a>
