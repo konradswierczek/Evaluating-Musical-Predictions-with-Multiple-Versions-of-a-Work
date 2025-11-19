@@ -1,6 +1,6 @@
-# Musical Feature Evaluation with Versions
+# EVALUATING MUSICAL PREDICTIONS WITH MULTIPLE VERSIONS OF A WORK
 
-Data and reproducible analysis for "Musical Feature Evaluation with Versions" by Konrad Swierczek & Michael Schutz submitted to Music & Science. This repository uses renv. More details coming soon.
+Data and reproducible analysis for "Evaluating Musical Predictions with Multiple Versions of a Work" by Konrad Swierczek & Michael Schutz accepted in Music & Science. This repository uses renv. More details coming soon.
 
 This analyses for this project are fully reproducible using docker:
 
@@ -16,7 +16,7 @@ docker run -d \
 
 ```
 
-Due to copyright issues, we cannot provide the audio files to make the original extractions reproducible.
+Due to copyright, we cannot provide the audio files to make the original extractions reproducible.
 
 ## Shiny App
 

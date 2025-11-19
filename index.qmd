@@ -1,8 +1,70 @@
----
----
+This repository contains reproducible data, results, and analysis from [Swierczek & Schutz, 2025 in Music & Science](https://journals.sagepub.com/doi/10.1177/20592043251384138).
 
-# Coming Soon!
+## Abstract
+
+The widespread use of music content analysis tools illustrates the need for diverse evaluation techniques to ensure their accuracy, robustness, reliability, and quality. This is particularly challenging in the case of features which predict musical properties whose values cannot be independently verified. Here we propose a new method for evaluating such tools that does not rely on a-priori knowledge of correct outcomes (i.e., “ground truth”). Instead, it examines many versions of a single composition, comparing predictions of musical properties expected to be relatively stable across recordings (mode, number of note events) to those expected to vary (tempo, timbre). This allows for assessing the efficacy of feature extraction even in situations where correct answers are unknown (or unknowable). As a proof of concept, we applied this approach to 17 commercially available recordings of J. S. Bach's 24 preludes from the Well-Tempered Clavier (Book 1) using three popular music content analysis tools, comparing variation in feature extraction across 17 versions of all 24 preludes (408 data points for each feature extracted). We find significant differences in the variation of mode predictions between tools, as well as more variation for predictions of mode than predictions of the number of note events. This affords a useful way of comparing predictions (whether between features or tools) which is particularly useful in the absence of ground truth. Other potential applications include parameter optimization, algorithm selection, and benchmarking procedures.
 
 ![](img/figure_4.png)
+
+---
+
+Due to copyright, we cannot provide the audio files to make the original extractions reproducible.
+
+An interactive Shiny app with VBV and extracted features for all audio files and algorithms is available [here](https://swierckj.shinyapps.io/variation-between-versions/)
+
+## Applying VBV Elsewhere
+
+Our implementation of Variation Between Verisons (VBV) is available in the MAPLE Lab's R package [MAPLEemo](https://github.com/MAPLE-Lab/MAPLEemo). You can install the package using `remotes`:
+
+```{{r}}
+remotes::install_git(
+  "https://github.com/MAPLE-Lab/MAPLEemo.git"
+)
+```
+
+Once you have the package installed, you can perform your own VBV analyses using the `relative_variation` function as follows (or get more details using `?relative_variation`):
+
+```{{r}}
+library(MAPLEemo)
+relative_variation(
+  df = mtcars,
+  grouping_col = cyl,
+  value_col = mpg
+)
+```
+
+```
+# A tibble: 3 × 4
+    cyl var_version var_total ratio
+  <dbl>       <dbl>     <dbl> <dbl>
+1     4        4.51      6.03 0.748
+2     6        1.45      6.03 0.241
+3     8        2.56      6.03 0.425
+```
+
+Or, if you are analyzing data with multiple groups:
+```{{r}}
+library(dplyr)
+mtcars |>
+  group_by(gear) |>
+  relative_variation(
+    grouping_col = cyl,
+    value_col = mpg
+  )
+```
+
+```
+# A tibble: 8 × 5
+   gear   cyl var_version var_total   ratio
+  <dbl> <dbl>       <dbl>     <dbl>   <dbl>
+1     3     4      NA          3.37 NA     
+2     3     6       2.33       3.37  0.692 
+3     3     8       2.77       3.37  0.823 
+4     4     4       4.81       5.28  0.911 
+5     4     6       1.55       5.28  0.294 
+6     5     4       3.11       6.66  0.467 
+7     5     6      NA          6.66 NA     
+8     5     8       0.566      6.66  0.0850
+```
 
 {{< include _supplementary.qmd >}}

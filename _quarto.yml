@@ -2,10 +2,10 @@ project:
   type: website
 
 website:
-  title: "Musical Feature Evaluation with Versions"
-  description: "Description goes here."
-  site-url: "https://konradswierczek.github.io/variation-between-versions/"
-  repo-url: "https://github.com/konradswierczek/variation-between-versions"
+  title: "Evaluating Musical Predictions with Multiple Versions of a Work"
+  description: "Reproducible data, results, and analysis from Swierczek & Schutz, 2025 in Music & Science."
+  site-url: "https://konradswierczek.github.io/Evaluating-Musical-Predictions-with-Multiple-Versions-of-a-Work/"
+  repo-url: "https://github.com/konradswierczek/Evaluating-Musical-Predictions-with-Multiple-Versions-of-a-Work"
 
   navbar:
     background: secondary
@@ -14,12 +14,12 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: https://swierckj.shinyapps.io/variation-between-versions/
+      - href: https://konradswierczek.github.io/Evaluating-Musical-Predictions-with-Multiple-Versions-of-a-Work/
         text: Interactive Data
       - icon: github
-        href: https://github.com/konradswierczek/variation-between-versions
+        href: https://github.com/konradswierczek/Evaluating-Musical-Predictions-with-Multiple-Versions-of-a-Work
       - icon: book
-        href: https://journals.sagepub.com/home/mns
+        href: https://journals.sagepub.com/doi/10.1177/20592043251384138
 
 
   page-navigation: true
@@ -32,6 +32,6 @@ website:
       - icon: envelope
         href: mailto:swierckj@mcmaster.ca
       - icon: github
-        href: https://github.com/konradswierczek/variation-between-versions
+        href: https://github.com/konradswierczek/Evaluating-Musical-Predictions-with-Multiple-Versions-of-a-Work
       - icon: book
-        href: https://journals.sagepub.com/home/mns
+        href: https://journals.sagepub.com/doi/10.1177/20592043251384138

@@ -11,7 +11,7 @@ options(shiny.port = 3838)
 source("src/read_data.R")
 
 text_size <- 20
-title <- "Musical Feature Evaluation with Versions"
+title <- "Evaluating Musical Predictions with Multiple Versions of a Work"
 
 # ============================================================================ #
 ui <- tagList(

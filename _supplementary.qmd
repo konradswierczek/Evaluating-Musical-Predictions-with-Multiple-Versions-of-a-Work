@@ -51,26 +51,28 @@ library(dplyr)
 library(stringr)
 df_mse_tbl <- df_mse |>
   rename(
-    Feature = feature,
     Tool = tool,
     Algorithm = method,
     MSE = mse
   )
 df_mse_tbl |>
-  filter(Feature == "Relative Mode") |>
+  filter(feature == "Relative Mode") |>
+  select(-feature) |>
   mutate(
     MSE = round(MSE, 4),
     Algorithm = str_replace(Algorithm, "GomezMIRtoolbox", "")
   ) |>
   kable()
 df_mse_tbl |>
-  filter(Feature == "Onsets (#)") |>
+  filter(feature == "Onsets (#)") |>
+  select(-feature) |>
   mutate(
     MSE = round(MSE, 0)
   ) |>
   kable()
 df_mse_tbl |>
-  filter(Feature == "Tempo (BPM)") |>
+  filter(feature == "Tempo (BPM)") |>
+  select(-feature) |>
   mutate(
     MSE = round(MSE, 0)
   ) |>
