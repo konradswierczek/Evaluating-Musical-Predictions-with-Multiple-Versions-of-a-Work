@@ -14,7 +14,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: https://konradswierczek.github.io/Evaluating-Musical-Predictions-with-Multiple-Versions-of-a-Work/
+      - href: https://swierckj.shinyapps.io/variation-between-versions/
         text: Interactive Data
       - icon: github
         href: https://github.com/konradswierczek/Evaluating-Musical-Predictions-with-Multiple-Versions-of-a-Work
